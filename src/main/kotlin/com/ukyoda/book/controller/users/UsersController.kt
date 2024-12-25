@@ -1,6 +1,6 @@
 package com.ukyoda.book.controller.users
 
-import com.ukyoda.book.domain.user.model.User
+import com.ukyoda.book.controller.users.dto.UserResponse
 import com.ukyoda.book.domain.user.repository.UserRepository
 import org.springframework.data.domain.Pageable
 import org.springframework.web.bind.annotation.GetMapping
@@ -16,8 +16,9 @@ class UsersController(
     @GetMapping("/")
     fun index(
         @RequestParam("page") page: Int = 0,
-    ): List<User> {
+    ): List<UserResponse> {
         val page: Pageable = Pageable.ofSize(100).withPage(page)
-        return userRepository.findAll(page)
+        val users = userRepository.findAll(page)
+        return users.map { UserResponse.from(it) }
     }
 }
