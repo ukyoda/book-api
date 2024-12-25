@@ -1,7 +1,7 @@
 package com.ukyoda.book.infrastructure.users
 
 import com.ukyoda.book.domain.user.repository.UserRepository
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Repository
 
 @Repository
@@ -13,5 +13,5 @@ class UserRepositoryImpl(
         password: String,
     ) = userMapper.login(username, password)
 
-    override fun findAll(pageable: Pageable) = userMapper.findAll(pageable)
+    override fun findAll(page: Pageable) = userMapper.findAll(page.pageSize.toLong(), page.offset)
 }

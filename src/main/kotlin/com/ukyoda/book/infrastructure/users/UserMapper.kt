@@ -3,7 +3,6 @@ package com.ukyoda.book.infrastructure.users
 import com.ukyoda.book.domain.user.model.User
 import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Select
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable
 
 @Mapper
 interface UserMapper {
@@ -26,14 +25,18 @@ interface UserMapper {
     @Select(
         """
         SELECT
-            *
+            id,
+            email,
+            name,
+            role_type
         FROM
             users
         LIMIT
-            #{pageable.offset} #{pageable.pageSize}
-        ORDER BY
-            id DESC
+            #{offset}, #{limit}
         """,
     )
-    fun findAll(pageable: Pageable): List<User>
+    fun findAll(
+        limit: Long,
+        offset: Long,
+    ): List<User>
 }

@@ -1,7 +1,7 @@
 package com.ukyoda.book.domain.user.repository
 
 import com.ukyoda.book.domain.user.model.User
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Repository
 
 @Repository
@@ -11,5 +11,5 @@ interface UserRepository {
         password: String,
     ): User
 
-    fun findAll(pageable: Pageable): List<User>
+    fun findAll(page: Pageable): List<User>
 }
