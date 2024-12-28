@@ -13,14 +13,10 @@ interface UserMapper {
         FROM
             users
         WHERE
-            username = #{userName}
-            AND password = #{password}
+            email = #{email}
         """,
     )
-    fun login(
-        userName: String,
-        password: String,
-    ): User
+    fun findByEmail(email: String): User
 
     @Select(
         """

@@ -8,10 +8,7 @@ import org.springframework.stereotype.Repository
 class UserRepositoryImpl(
     private val userMapper: UserMapper,
 ) : UserRepository {
-    override fun login(
-        username: String,
-        password: String,
-    ) = userMapper.login(username, password)
+    override fun findByEmail(email: String) = userMapper.findByEmail(email)
 
     override fun findAll(page: Pageable) = userMapper.findAll(page.pageSize.toLong(), page.offset)
 }

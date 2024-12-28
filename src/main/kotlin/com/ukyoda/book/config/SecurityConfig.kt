@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
+import org.springframework.security.crypto.password.PasswordEncoder
+import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder
 import org.springframework.security.web.SecurityFilterChain
 
 @Configuration
@@ -33,17 +35,29 @@ class SecurityConfig {
                 login
                     .loginPage("/login")
                     .permitAll()
-                    .successForwardUrl("/my")
+                    .defaultSuccessUrl("/hello")
                     .failureUrl("/login?error")
             }.authorizeHttpRequests { authz ->
                 authz
                     .requestMatchers(PathRequest.toStaticResources().atCommonLocations())
                     .permitAll()
-                    .requestMatchers("/hello/**", "/")
+                    .requestMatchers("/", "/auth/hash")
                     .permitAll()
                     .anyRequest()
                     .authenticated()
             }
         return http.build()
+    }
+
+    @Bean
+    fun passwordEncoder(): PasswordEncoder {
+        // 平文のパスワード認証を使う場合（非推奨）
+        // return NoOpPasswordEncoder.getInstance()
+
+        // PBKDF2アルゴリズムによるパスワード暗号化定義
+        val pbkdf2PasswordEncoder =
+            Pbkdf2PasswordEncoder.defaultsForSpringSecurity_v5_8()
+        pbkdf2PasswordEncoder.setEncodeHashAsBase64(true)
+        return pbkdf2PasswordEncoder
     }
 }

@@ -6,10 +6,7 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface UserRepository {
-    fun login(
-        username: String,
-        password: String,
-    ): User
+    fun findByEmail(email: String): User?
 
     fun findAll(page: Pageable): List<User>
 }

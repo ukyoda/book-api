@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 @Controller
 @RequestMapping("hello")
 class HelloController {
-    @GetMapping("/")
+    @GetMapping
     fun hello(model: Model): String {
         model.addAttribute("message", "Hello world!")
         return "hello/index"
