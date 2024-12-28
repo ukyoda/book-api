@@ -1,6 +1,7 @@
-package com.ukyoda.book.infrastructure.users
+package com.ukyoda.book.infrastructure.user
 
 import com.ukyoda.book.domain.user.model.User
+import org.apache.ibatis.annotations.Insert
 import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Select
 
@@ -35,4 +36,25 @@ interface UserMapper {
         limit: Long,
         offset: Long,
     ): List<User>
+
+    @Insert(
+        """
+        INSERT INTO
+            users
+        (
+            email,
+            password,
+            name,
+            role_type
+        )
+        VALUES
+        (
+            #{email},
+            #{password},
+            #{name},
+            #{roleType}
+        )
+        """,
+    )
+    fun create(user: User): Long
 }

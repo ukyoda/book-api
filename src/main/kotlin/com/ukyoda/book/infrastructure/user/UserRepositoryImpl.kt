@@ -1,5 +1,6 @@
-package com.ukyoda.book.infrastructure.users
+package com.ukyoda.book.infrastructure.user
 
+import com.ukyoda.book.domain.user.model.User
 import com.ukyoda.book.domain.user.repository.UserRepository
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Repository
@@ -11,4 +12,10 @@ class UserRepositoryImpl(
     override fun findByEmail(email: String) = userMapper.findByEmail(email)
 
     override fun findAll(page: Pageable) = userMapper.findAll(page.pageSize.toLong(), page.offset)
+
+    override fun create(user: User): User {
+        val id = userMapper.create(user)
+        user.id = id
+        return user
+    }
 }

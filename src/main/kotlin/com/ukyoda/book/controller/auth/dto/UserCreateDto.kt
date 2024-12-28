@@ -8,12 +8,12 @@ import jakarta.validation.constraints.Size
 data class UserCreateDto(
     @NotEmpty(message = "メールアドレスを入力してください")
     @Email(message = "メールアドレスを入力してください")
-    val email: String,
+    var email: String? = null,
     @NotEmpty(message = "パスワードを入力してください")
-    val password: String,
+    var password: String? = null,
     @NotEmpty(message = "名前を入力してください")
     @Size(min = 1, max = 100, message = "名前は1文字以上100文字以下で入力してください")
-    val name: String,
+    var name: String? = null,
     @NotEmpty(message = "権限を入力してください")
-    val roleType: RoleType,
+    var role: RoleType = RoleType.USER,
 )

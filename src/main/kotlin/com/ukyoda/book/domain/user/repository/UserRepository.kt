@@ -9,4 +9,6 @@ interface UserRepository {
     fun findByEmail(email: String): User?
 
     fun findAll(page: Pageable): List<User>
+
+    fun create(user: User): User
 }

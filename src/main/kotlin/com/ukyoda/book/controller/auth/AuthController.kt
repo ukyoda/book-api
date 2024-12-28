@@ -2,6 +2,8 @@ package com.ukyoda.book.controller.auth
 
 import com.ukyoda.book.controller.auth.dto.UserCreateDto
 import com.ukyoda.book.domain.user.model.RoleType
+import com.ukyoda.book.domain.user.model.User
+import com.ukyoda.book.domain.user.service.UserCreateService
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam
 @Controller
 class AuthController(
     private val passwordEncoder: PasswordEncoder,
+    private val userCreateService: UserCreateService,
 ) {
     @GetMapping("/login")
     fun login(): String = "auth/login"
@@ -36,19 +39,32 @@ class AuthController(
     fun users(): String = "auth/users"
 
     @GetMapping("/auth/users/create")
-    fun userCreate(model: Model): String {
+    fun showUserCreate(
+        @ModelAttribute("form") form: UserCreateDto,
+        model: Model,
+    ): String {
         model.addAttribute("roles", RoleType.values())
         return "auth/user_create"
     }
 
     @PostMapping("/auth/users/create")
     fun userCreate(
-        @Validated @ModelAttribute form: UserCreateDto,
+        @Validated @ModelAttribute("form") form: UserCreateDto,
+        model: Model,
         bindingResult: BindingResult,
     ): String {
         if (bindingResult.hasErrors()) {
-            return "auth/user_create"
+            return showUserCreate(form, model)
         }
+        val user: User =
+            User(
+                id = null,
+                email = form.email!!,
+                password = passwordEncoder.encode(form.password!!),
+                name = form.name!!,
+                roleType = form.role,
+            )
+        userCreateService.create(user)
         return "redirect:/auth/users"
     }
 }
