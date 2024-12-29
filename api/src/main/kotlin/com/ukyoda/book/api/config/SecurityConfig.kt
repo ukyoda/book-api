@@ -21,8 +21,10 @@ class SecurityConfig(
             .csrf { csrf -> csrf.disable() }
             .authorizeHttpRequests { authz ->
                 authz
-                    .requestMatchers(apiPath("/version"))
-                    .permitAll()
+                    .requestMatchers(
+                        apiPath("/version"),
+                        apiPath("/login"),
+                    ).permitAll()
                     .anyRequest()
                     .authenticated()
             }
