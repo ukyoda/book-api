@@ -1,9 +1,8 @@
 package com.ukyoda.book.admin.controller.auth
 
-import com.ukyoda.book.admin.controller.auth.dto.UserCreateDto
-import com.ukyoda.book.admin.domain.user.model.RoleType
-import com.ukyoda.book.admin.domain.user.model.User
-import com.ukyoda.book.admin.domain.user.service.UserCreateService
+import com.ukyoda.book.common.domain.user.model.RoleType
+import com.ukyoda.book.common.domain.user.model.User
+import com.ukyoda.book.common.domain.user.service.UserCreateService
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam
 @Controller
 class AuthController(
     private val passwordEncoder: PasswordEncoder,
-    private val userCreateService: com.ukyoda.book.admin.domain.user.service.UserCreateService,
+    private val userCreateService: UserCreateService,
 ) {
     @GetMapping("/login")
     fun login(): String = "auth/login"
@@ -45,7 +44,7 @@ class AuthController(
     ): String {
         model.addAttribute(
             "roles",
-            com.ukyoda.book.admin.domain.user.model.RoleType
+            RoleType
                 .values(),
         )
         return "auth/user_create"
@@ -60,8 +59,8 @@ class AuthController(
         if (bindingResult.hasErrors()) {
             return showUserCreate(form, model)
         }
-        val user: com.ukyoda.book.admin.domain.user.model.User =
-            com.ukyoda.book.admin.domain.user.model.User(
+        val user: User =
+            User(
                 id = null,
                 email = form.email!!,
                 password = passwordEncoder.encode(form.password!!),

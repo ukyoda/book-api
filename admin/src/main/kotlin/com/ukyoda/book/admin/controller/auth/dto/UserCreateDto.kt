@@ -1,6 +1,6 @@
 package com.ukyoda.book.admin.controller.auth.dto
 
-import com.ukyoda.book.admin.domain.user.model.RoleType
+import com.ukyoda.book.common.domain.user.model.RoleType
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotEmpty
 import jakarta.validation.constraints.Size
@@ -15,5 +15,5 @@ data class UserCreateDto(
     @Size(min = 1, max = 100, message = "名前は1文字以上100文字以下で入力してください")
     var name: String? = null,
     @NotEmpty(message = "権限を入力してください")
-    var role: com.ukyoda.book.admin.domain.user.model.RoleType = com.ukyoda.book.admin.domain.user.model.RoleType.USER,
+    var role: RoleType = RoleType.USER,
 )

@@ -1,6 +1,6 @@
-package com.ukyoda.book.admin.domain.auth
+package com.ukyoda.book.admin.domain.auth.service
 
-import com.ukyoda.book.admin.domain.user.repository.UserRepository
+import com.ukyoda.book.common.domain.user.repository.UserRepository
 import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class UserDetailsServiceImpl(
-    private val userRepository: com.ukyoda.book.admin.domain.user.repository.UserRepository,
+    private val userRepository: UserRepository,
 ) : UserDetailsService {
     override fun loadUserByUsername(email: String): UserDetails {
         val user =

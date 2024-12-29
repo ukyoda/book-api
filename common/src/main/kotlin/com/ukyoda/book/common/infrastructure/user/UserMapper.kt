@@ -1,6 +1,6 @@
-package com.ukyoda.book.admin.infrastructure.user
+package com.ukyoda.book.common.infrastructure.user
 
-import com.ukyoda.book.admin.domain.user.model.User
+import com.ukyoda.book.common.domain.user.model.User
 import org.apache.ibatis.annotations.Insert
 import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Select
@@ -17,7 +17,7 @@ interface UserMapper {
             email = #{email}
         """,
     )
-    fun findByEmail(email: String): com.ukyoda.book.admin.domain.user.model.User
+    fun findByEmail(email: String): User
 
     @Select(
         """
@@ -35,7 +35,7 @@ interface UserMapper {
     fun findAll(
         limit: Long,
         offset: Long,
-    ): List<com.ukyoda.book.admin.domain.user.model.User>
+    ): List<User>
 
     @Insert(
         """
@@ -56,5 +56,5 @@ interface UserMapper {
         )
         """,
     )
-    fun create(user: com.ukyoda.book.admin.domain.user.model.User): Long
+    fun create(user: User): Long
 }
