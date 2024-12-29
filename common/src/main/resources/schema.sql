@@ -9,7 +9,6 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS books (
   id bigint NOT NULL PRIMARY KEY AUTO_INCREMENT,
   title varchar(128) NOT NULL,
-  author varchar(64) NOT NULL,
   release_date bigint NOT NULL,
   created_at bigint NOT NULL,
   updated_at bigint NOT NULL

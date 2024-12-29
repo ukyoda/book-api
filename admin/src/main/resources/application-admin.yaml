@@ -1,0 +1,15 @@
+server:
+  port: 8000
+  servlet:
+    session:
+      cookie:
+        name: SESSION
+
+spring:
+  application:
+    name: admin
+
+  config:
+    import: classpath:application-common.yaml
+
+# logging.level.org.springframework: DEBUG
