@@ -1,12 +1,15 @@
 server:
-  port: 8000
+  port: 8001
   servlet:
-    session:
+      session:
       cookie:
-        name: SESSION
+          name: SESSION
 
 spring:
   application:
-    name: admin
+    name: api
+
+api:
+  prefix: /api/v1
 
 # logging.level.org.springframework: DEBUG

@@ -1,5 +1,6 @@
 package com.ukyoda.book.admin.config
 
+import com.ukyoda.book.common.domain.auth.component.AllowH2Console
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -11,24 +12,13 @@ import org.springframework.security.web.SecurityFilterChain
 
 @Configuration
 @EnableWebSecurity
-class SecurityConfig {
+class SecurityConfig(
+    private val allowH2Console: AllowH2Console,
+) {
     @Bean
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
         // h2-consoleの設定
-        http
-            .authorizeHttpRequests { authz ->
-                authz
-                    .requestMatchers("/h2-console/**")
-                    .permitAll()
-            }.csrf { csrf ->
-                csrf
-                    .ignoringRequestMatchers("/h2-console/**")
-            }.headers { header ->
-                header
-                    .frameOptions { frameOption ->
-                        frameOption.disable()
-                    }
-            }
+        allowH2Console.allow(http)
 
         http
             .formLogin { login ->

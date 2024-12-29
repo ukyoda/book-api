@@ -1,11 +1,11 @@
-package com.ukyoda.book.api
+package com.ukyoda.book
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class DemoApplication
+class ApiApplication
 
 fun main(args: Array<String>) {
-	runApplication<DemoApplication>(*args)
+    runApplication<ApiApplication>(*args)
 }
