@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController
 @ApiPrefix
 @CrossOrigin
 class LoginController(
-    private val daoAuthenticationProvider: DaoAuthenticationProvider
+    private val daoAuthenticationProvider: DaoAuthenticationProvider,
     private val jwtComponent: JwtComponent
 ) {
     @PostMapping("/login")
