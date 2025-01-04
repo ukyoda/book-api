@@ -34,6 +34,7 @@ class JwtAuthorizeFilter(
             }
             val decodedJwt = jwtComponent.decode(xAuthToken.substring(7))
             val username = decodedJwt.getClaim("email").toString()
+
             SecurityContextHolder.getContext().authentication =
                 UsernamePasswordAuthenticationToken(username, null, ArrayList())
         }

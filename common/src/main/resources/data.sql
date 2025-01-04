@@ -7,4 +7,12 @@ insert into users (email, password, name, role_type)
 
 -- books data
 -- ----------------------------------------------
-insert into books (title, release_date, created_at, updated_at) values ('なんかの本1', 1735052400, 1735052400, 1735052400);
+insert into books (title, published_date, created_at, updated_at)
+    values ('なんかの本1', 1735052400, 1735052400, 1735052400);
+
+-- author data
+-- ----------------------------------------------
+insert into authors (book_id, name)
+    values (1, '著者1'),
+           (1, '著者2'),
+           (1, '著者3');
