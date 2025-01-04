@@ -1,7 +1,7 @@
-package com.ukyoda.book.common.domain.user.service
+package com.ukyoda.book.common.domain.users.service
 
-import com.ukyoda.book.common.domain.user.model.User
-import com.ukyoda.book.common.domain.user.repository.UserRepository
+import com.ukyoda.book.common.domain.users.model.User
+import com.ukyoda.book.common.domain.users.repository.UserRepository
 import org.springframework.stereotype.Service
 
 @Service

@@ -1,7 +1,7 @@
 package com.ukyoda.book.admin.domain.auth.service
 
-import com.ukyoda.book.common.domain.user.model.RoleType
-import com.ukyoda.book.common.domain.user.repository.UserRepository
+import com.ukyoda.book.common.domain.users.model.RoleType
+import com.ukyoda.book.common.domain.users.repository.UserRepository
 import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService

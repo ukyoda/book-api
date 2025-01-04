@@ -1,6 +1,6 @@
-package com.ukyoda.book.common.domain.user.repository
+package com.ukyoda.book.common.domain.users.repository
 
-import com.ukyoda.book.common.domain.user.model.User
+import com.ukyoda.book.common.domain.users.model.User
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Repository
 

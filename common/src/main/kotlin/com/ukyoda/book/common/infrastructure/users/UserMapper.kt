@@ -1,6 +1,6 @@
-package com.ukyoda.book.common.infrastructure.user
+package com.ukyoda.book.common.infrastructure.users
 
-import com.ukyoda.book.common.domain.user.model.User
+import com.ukyoda.book.common.domain.users.model.User
 import org.apache.ibatis.annotations.Insert
 import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Select

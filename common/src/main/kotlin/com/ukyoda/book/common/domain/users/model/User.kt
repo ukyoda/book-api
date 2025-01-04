@@ -1,4 +1,4 @@
-package com.ukyoda.book.common.domain.user.model
+package com.ukyoda.book.common.domain.users.model
 
 data class User(
     var id: Long? = null,

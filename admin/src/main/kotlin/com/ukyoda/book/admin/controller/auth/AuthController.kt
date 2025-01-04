@@ -1,8 +1,8 @@
 package com.ukyoda.book.admin.controller.auth
 
-import com.ukyoda.book.common.domain.user.model.RoleType
-import com.ukyoda.book.common.domain.user.model.User
-import com.ukyoda.book.common.domain.user.service.UserCreateService
+import com.ukyoda.book.common.domain.users.model.RoleType
+import com.ukyoda.book.common.domain.users.model.User
+import com.ukyoda.book.common.domain.users.service.UserCreateService
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model

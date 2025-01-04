@@ -1,6 +1,6 @@
 package com.ukyoda.book.admin.controller.auth.dto
 
-import com.ukyoda.book.common.domain.user.model.RoleType
+import com.ukyoda.book.common.domain.users.model.RoleType
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotEmpty
 import jakarta.validation.constraints.Size
