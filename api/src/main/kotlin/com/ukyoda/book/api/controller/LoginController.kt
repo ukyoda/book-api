@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.web.bind.annotation.CrossOrigin
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
@@ -40,5 +41,10 @@ class LoginController(
         } catch (e: AuthenticationException) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build()
         }
+    }
+
+    @GetMapping("/check")
+    fun sessionCheck(): String {
+        return "{ \"status\": \"ok\" }"
     }
 }
