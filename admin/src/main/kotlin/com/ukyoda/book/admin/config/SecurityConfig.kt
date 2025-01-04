@@ -1,6 +1,7 @@
 package com.ukyoda.book.admin.config
 
 import com.ukyoda.book.common.domain.auth.component.AllowH2Console
+import com.ukyoda.book.common.domain.auth.component.getPasswordEncoder
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -45,9 +46,6 @@ class SecurityConfig(
         // return NoOpPasswordEncoder.getInstance()
 
         // PBKDF2アルゴリズムによるパスワード暗号化定義
-        val pbkdf2PasswordEncoder =
-            Pbkdf2PasswordEncoder.defaultsForSpringSecurity_v5_8()
-        pbkdf2PasswordEncoder.setEncodeHashAsBase64(true)
-        return pbkdf2PasswordEncoder
+        return getPasswordEncoder()
     }
 }
