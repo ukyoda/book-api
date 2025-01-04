@@ -9,7 +9,8 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS books (
   id bigint NOT NULL PRIMARY KEY AUTO_INCREMENT,
   title varchar(128) NOT NULL,
-  published_date bigint NOT NULL,
+  publisher varchar(128) NOT NULL,
+  published_date bigint,
   created_at bigint NOT NULL,
   updated_at bigint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
