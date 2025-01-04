@@ -1,5 +1,7 @@
 package com.ukyoda.book.api.config
 
+import com.auth0.jwt.JWT
+import com.auth0.jwt.algorithms.Algorithm
 import com.ukyoda.book.common.domain.auth.component.AllowH2Console
 import com.ukyoda.book.common.domain.auth.component.getPasswordEncoder
 import com.ukyoda.book.domain.auth.component.JwtAuthorizeFilter

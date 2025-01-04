@@ -3,6 +3,7 @@ package com.ukyoda.book.api.controller
 import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm
 import com.ukyoda.book.api.controller.annotation.ApiPrefix
+import com.ukyoda.book.domain.auth.component.JwtComponent
 import com.ukyoda.book.domain.auth.model.UserForm
 import org.apache.coyote.Response
 import org.apache.tomcat.websocket.AuthenticationException
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController
 @CrossOrigin
 class LoginController(
     private val daoAuthenticationProvider: DaoAuthenticationProvider
+    private val jwtComponent: JwtComponent
 ) {
     @PostMapping("/login")
     fun login(@RequestBody userForm: UserForm): ResponseEntity<String> {
@@ -31,8 +33,7 @@ class LoginController(
                     userForm.password
                 )
             )
-            val token = JWT.create().withClaim("username", userForm.username)
-                .sign(Algorithm.HMAC256("__secret__"))
+            val token = jwtComponent.encode(userForm.username)
             val headers = HttpHeaders()
             headers.add("x-auth-token", token)
             return ResponseEntity.status(HttpStatus.OK).headers(headers).build()

@@ -11,5 +11,6 @@ spring:
 
 api:
   prefix: /api/v1
+  secret: "aosdijfaoijdfo;aisjdo;fiajga"
 
 # logging.level.org.springframework: DEBUG

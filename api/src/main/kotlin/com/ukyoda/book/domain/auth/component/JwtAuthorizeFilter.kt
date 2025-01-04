@@ -14,7 +14,10 @@ import org.springframework.stereotype.Component
 import org.springframework.web.filter.OncePerRequestFilter
 
 @Component
-class JwtAuthorizeFilter(@Value("\${api.prefix}") private val apiPrefix: String,) : OncePerRequestFilter() {
+class JwtAuthorizeFilter(
+    private val jwtComponent: JwtComponent,
+    @Value("\${api.prefix}") private val apiPrefix: String,
+) : OncePerRequestFilter() {
     private val matcher: AntPathRequestMatcher = AntPathRequestMatcher(apiPath("/login"))
 
     protected override fun doFilterInternal(
@@ -32,10 +35,7 @@ class JwtAuthorizeFilter(@Value("\${api.prefix}") private val apiPrefix: String,
                 filterChain.doFilter(request, response)
                 return
             }
-            val decodedJwt = JWT
-                .require(Algorithm.HMAC256("__secret__"))
-                .build()
-                .verify(xAuthToken.substring(7))
+            val decodedJwt = jwtComponent.decode(xAuthToken.substring(7))
             val username = decodedJwt.getClaim("username").toString()
             SecurityContextHolder.getContext().authentication =
                 UsernamePasswordAuthenticationToken(username, null, ArrayList())
