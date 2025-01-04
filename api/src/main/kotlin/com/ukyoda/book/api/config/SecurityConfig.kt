@@ -1,11 +1,8 @@
 package com.ukyoda.book.api.config
 
-import com.auth0.jwt.JWT
-import com.auth0.jwt.algorithms.Algorithm
 import com.ukyoda.book.common.domain.auth.component.AllowH2Console
 import com.ukyoda.book.common.domain.auth.component.getPasswordEncoder
 import com.ukyoda.book.domain.auth.component.JwtAuthorizeFilter
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider
@@ -20,7 +17,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 class SecurityConfig(
     private val authorizeFilter: JwtAuthorizeFilter,
     private val allowH2Console: AllowH2Console,
-    @Value("\${api.prefix}") private val apiPrefix: String,
 ) {
     @Bean
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
@@ -30,13 +26,12 @@ class SecurityConfig(
             .authorizeHttpRequests { authz ->
                 authz
                     .requestMatchers(
-                        apiPath("/version"),
-                        apiPath("/login"),
+                        "/api/v1/version",
+                        "/api/v1/login",
                     ).permitAll()
                     .anyRequest()
                     .authenticated()
-            }
-            .addFilterBefore(authorizeFilter, UsernamePasswordAuthenticationFilter::class.java)
+            }.addFilterBefore(authorizeFilter, UsernamePasswordAuthenticationFilter::class.java)
         return http.build()
     }
 
@@ -50,6 +45,4 @@ class SecurityConfig(
 
     @Bean
     fun passwordEncoder() = getPasswordEncoder()
-
-    private fun apiPath(path: String): String = "$apiPrefix$path"
 }

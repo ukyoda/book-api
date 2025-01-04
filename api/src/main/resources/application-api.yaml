@@ -1,16 +1,15 @@
 server:
   port: 8001
   servlet:
-      session:
+    session:
       cookie:
-          name: SESSION
+        name: SESSION
 
 spring:
   application:
     name: api
 
 api:
-  prefix: /api/v1
   secret: "aosdijfaoijdfo;aisjdo;fiajga"
 
 # logging.level.org.springframework: DEBUG
