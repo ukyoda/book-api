@@ -22,7 +22,7 @@ class JwtAuthorizeFilter(@Value("\${api.prefix}") private val apiPrefix: String,
         response: HttpServletResponse,
         filterChain: FilterChain
     ) {
-        if (matcher.matches(request)) {
+        if (!matcher.matches(request)) {
             val xAuthToken = request
                 .getHeader("X-AUTH-TOKEN")
                 ?.takeIf {
