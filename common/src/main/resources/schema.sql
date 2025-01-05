@@ -9,6 +9,10 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS books (
   id bigint NOT NULL PRIMARY KEY AUTO_INCREMENT,
   title varchar(128) NOT NULL,
+  description text NOT NULL,
+  small_image_url text,
+  medium_image_url text,
+  large_image_url text,
   publisher varchar(128) NOT NULL,
   published_date bigint,
   created_at bigint NOT NULL,
