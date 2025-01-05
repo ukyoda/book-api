@@ -2,20 +2,22 @@ package com.ukyoda.book.common.domain.books.model
 
 data class Book(
     val id: Long? = null,
-    val name: String,
+    val title: String,
+    val isbn: String? = null,
     val description: String,
-    val smallImageUrl: String?,
-    val mediumImageUrl: String?,
-    val largeImageUrl: String?,
+    val smallImageUrl: String? = null,
+    val mediumImageUrl: String? = null,
+    val largeImageUrl: String? = null,
     val publisher: String,
-    val publishedDate: Long?,
+    val publishedDate: Long? = null,
     val authors: List<Author> = emptyList(),
 ) {
     companion object {
         fun from(book: Book) =
             Book(
                 id = book.id,
-                name = book.name,
+                title = book.title,
+                isbn = book.isbn,
                 description = book.description,
                 smallImageUrl = book.smallImageUrl,
                 mediumImageUrl = book.mediumImageUrl,
@@ -30,7 +32,8 @@ data class Book(
             book: Book,
         ) = Book(
             id = id,
-            name = book.name,
+            title = book.title,
+            isbn = book.isbn,
             description = book.description,
             smallImageUrl = book.smallImageUrl,
             mediumImageUrl = book.mediumImageUrl,
