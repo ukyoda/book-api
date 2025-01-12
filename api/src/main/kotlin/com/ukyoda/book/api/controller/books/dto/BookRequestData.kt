@@ -2,22 +2,30 @@ package com.ukyoda.book.api.controller.books.dto
 
 import com.ukyoda.book.common.domain.books.model.Author
 import com.ukyoda.book.common.domain.books.model.Book
+import jakarta.validation.Valid
+import jakarta.validation.constraints.NotEmpty
+import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Pattern
 import jakarta.validation.constraints.Size
 
 data class BookRequestData(
-    @Size(min = 1, max = 128)
+    @field:Size(min = 1, max = 128)
     val title: String,
-    @Pattern(regexp = "^[0-9]+$")
+    @field:Pattern(regexp = "^[0-9]+$")
     val isbn: String? = null,
-    @Size(min = 1, max = 1024)
+    @field:Size(min = 1, max = 1024)
     val description: String? = null,
     val image: BookImage? = null,
-    @Size(min = 1, max = 128)
+    @field:Size(min = 1, max = 128)
     val publisher: String,
-    @Size(min = 1, max = 128)
     val publishedDate: Long? = null,
-    val authors: List<String> = emptyList(),
+    @Valid
+    val authors: List<
+        @Size(min = 1, max = 124)
+        @NotEmpty
+        @NotNull
+        String,
+    > = emptyList(),
 ) {
     fun toDomain(): Book =
         Book(
