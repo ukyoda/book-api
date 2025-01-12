@@ -52,9 +52,11 @@ class BookApiRepositoryImpl(
         return getRequest(
             "$baseUrl?applicationId=$appId&format=json&author=$encodedAuthor",
         ).let {
-            ObjectMapper()
-                .readValue(it.body.toString(), BookForRakutenApiResponse::class.java)
-                .toDomain()
+            it.body?.string()?.let { body ->
+                ObjectMapper()
+                    .readValue(body, BookForRakutenApiResponse::class.java)
+                    .toDomain()
+            } ?: emptyList()
         }
     }
 
