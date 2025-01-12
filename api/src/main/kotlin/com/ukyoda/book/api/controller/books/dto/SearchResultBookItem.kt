@@ -2,7 +2,7 @@ package com.ukyoda.book.api.controller.books.dto
 
 import com.ukyoda.book.common.domain.books.model.Book
 
-data class BookDto(
+data class SearchResultBookItem(
     val title: String,
     val isbn: String? = null,
     val description: String? = null,
@@ -13,7 +13,7 @@ data class BookDto(
 ) {
     companion object {
         fun fromDomain(book: Book) =
-            BookDto(
+            SearchResultBookItem(
                 title = book.title,
                 isbn = book.isbn,
                 description = book.description,

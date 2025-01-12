@@ -1,7 +1,7 @@
 package com.ukyoda.book.api.controller.books
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.ukyoda.book.api.controller.books.dto.BookDto
+import com.ukyoda.book.api.controller.books.dto.SearchResultBookItem
 import com.ukyoda.book.api.controller.dto.ErrorResponse
 import com.ukyoda.book.common.domain.exception.NotFoundException
 import com.ukyoda.book.usecase.books.service.SearchBookFromApi
@@ -27,7 +27,7 @@ class BookSearchController(
             .writerWithDefaultPrettyPrinter()
             .writeValueAsString(
                 searchBookFromApi.searchByTitle(title).map { book ->
-                    BookDto.fromDomain(book)
+                    SearchResultBookItem.fromDomain(book)
                 },
             )
 
@@ -42,7 +42,7 @@ class BookSearchController(
             searchBookFromApi
                 .searchByAuthor(author)
                 .map { book ->
-                    BookDto.fromDomain(book)
+                    SearchResultBookItem.fromDomain(book)
                 },
         )
 
@@ -60,7 +60,7 @@ class BookSearchController(
                     searchBookFromApi
                         .searchByIsbn(isbn)
                         .let { book ->
-                            BookDto.fromDomain(book)
+                            SearchResultBookItem.fromDomain(book)
                         },
                 )
         } catch (e: NotFoundException) {
