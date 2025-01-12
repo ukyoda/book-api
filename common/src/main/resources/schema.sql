@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS books (
   id bigint NOT NULL PRIMARY KEY AUTO_INCREMENT,
   title varchar(128) NOT NULL,
   isbn varchar(16),
-  description text NOT NULL,
+  description text,
   small_image_url text,
   medium_image_url text,
   large_image_url text,
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS books (
   updated_at bigint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE IF NOT EXISTS authors (
+CREATE TABLE IF NOT EXISTS book_authors (
   id bigint NOT NULL PRIMARY KEY AUTO_INCREMENT,
   book_id bigint NOT NULL,
   name varchar(128) NOT NULL,

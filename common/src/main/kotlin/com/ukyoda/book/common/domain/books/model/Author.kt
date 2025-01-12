@@ -1,7 +1,7 @@
 package com.ukyoda.book.common.domain.books.model
 
 data class Author(
-    val id: Long?,
+    val id: Long? = null,
     val name: String,
 ) {
     companion object {

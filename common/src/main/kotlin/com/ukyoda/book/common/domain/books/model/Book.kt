@@ -4,7 +4,7 @@ data class Book(
     val id: Long? = null,
     val title: String,
     val isbn: String? = null,
-    val description: String,
+    val description: String? = null,
     val smallImageUrl: String? = null,
     val mediumImageUrl: String? = null,
     val largeImageUrl: String? = null,
