@@ -25,6 +25,7 @@ class BookController {
                     ErrorResponse(code = 400, reason = "INVALID_INPUT", message = "Bad Request"),
                 )
         }
+
         return ResponseEntity.ok(mapOf("a" to 1, "b" to 2))
     }
 }
