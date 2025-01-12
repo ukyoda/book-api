@@ -43,7 +43,8 @@ class BookApiRepositoryImpl(
                 ObjectMapper()
                     .readValue(body, BookForRakutenApiResponse::class.java)
                     .toDomain()
-                    .first()
+                    .takeIf { data -> data.isNotEmpty() }
+                    ?.first()
             }
         }
 

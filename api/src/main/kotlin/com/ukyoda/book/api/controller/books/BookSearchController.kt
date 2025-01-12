@@ -24,6 +24,7 @@ class BookSearchController(
         title: String,
     ): String =
         ObjectMapper()
+            .writerWithDefaultPrettyPrinter()
             .writeValueAsString(
                 searchBookFromApi.searchByTitle(title).map { book ->
                     BookDto.fromDomain(book)
@@ -36,6 +37,7 @@ class BookSearchController(
         @NotBlank
         author: String,
     ) = ObjectMapper()
+        .writerWithDefaultPrettyPrinter()
         .writeValueAsString(
             searchBookFromApi
                 .searchByAuthor(author)
@@ -52,15 +54,18 @@ class BookSearchController(
         isbn: String,
     ): String? {
         try {
-            return ObjectMapper().writeValueAsString(
-                searchBookFromApi
-                    .searchByIsbn(isbn)
-                    .let { book ->
-                        BookDto.fromDomain(book)
-                    },
-            )
+            return ObjectMapper()
+                .writerWithDefaultPrettyPrinter()
+                .writeValueAsString(
+                    searchBookFromApi
+                        .searchByIsbn(isbn)
+                        .let { book ->
+                            BookDto.fromDomain(book)
+                        },
+                )
         } catch (e: NotFoundException) {
             return ObjectMapper()
+                .writerWithDefaultPrettyPrinter()
                 .writeValueAsString(
                     ErrorResponse(
                         code = 404,
