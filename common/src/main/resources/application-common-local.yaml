@@ -11,3 +11,7 @@ spring:
     url: jdbc:h2:mem:book_db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MYSQL
     username: sa
     password:
+
+third_api:
+  rakuten:
+    app_id: ${RAKUTEN_API_APP_ID}
