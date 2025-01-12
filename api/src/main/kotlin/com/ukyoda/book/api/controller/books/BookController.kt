@@ -1,7 +1,8 @@
 package com.ukyoda.book.api.controller.books
 
-import com.ukyoda.book.api.controller.books.dto.BookRequestNewData
+import com.ukyoda.book.api.controller.books.dto.BookRequestData
 import com.ukyoda.book.api.controller.dto.ErrorResponse
+import org.springframework.http.ResponseEntity
 import org.springframework.validation.BindingResult
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.PostMapping
@@ -14,12 +15,16 @@ import org.springframework.web.bind.annotation.RestController
 class BookController {
     @PostMapping
     fun create(
-        @RequestBody @Validated bookRequestNewData: BookRequestNewData,
+        @RequestBody @Validated bookRequestNewData: BookRequestData,
         bindingResult: BindingResult,
-    ): String {
+    ): ResponseEntity<Any> {
         if (bindingResult.hasErrors()) {
-            return ErrorResponse(code = 400, reason = "INVALID_INPUT", message = "Bad Request").toJson()
+            return ResponseEntity
+                .status(400)
+                .body(
+                    ErrorResponse(code = 400, reason = "INVALID_INPUT", message = "Bad Request"),
+                )
         }
-        return "{}"
+        return ResponseEntity.ok(mapOf("a" to 1, "b" to 2))
     }
 }

@@ -5,7 +5,7 @@ import com.ukyoda.book.common.domain.books.model.Book
 import jakarta.validation.constraints.Pattern
 import jakarta.validation.constraints.Size
 
-data class BookRequestNewData(
+data class BookRequestData(
     @Size(min = 1, max = 128)
     val title: String,
     @Pattern(regexp = "^[0-9]+$")
