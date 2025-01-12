@@ -1,4 +1,4 @@
-package com.ukyoda.book.domain.auth.component
+package com.ukyoda.book.usecase.auth.component
 
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest

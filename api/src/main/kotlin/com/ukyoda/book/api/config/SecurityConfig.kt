@@ -2,7 +2,7 @@ package com.ukyoda.book.api.config
 
 import com.ukyoda.book.common.domain.auth.component.AllowH2Console
 import com.ukyoda.book.common.domain.auth.component.getPasswordEncoder
-import com.ukyoda.book.domain.auth.component.JwtAuthorizeFilter
+import com.ukyoda.book.usecase.auth.component.JwtAuthorizeFilter
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider

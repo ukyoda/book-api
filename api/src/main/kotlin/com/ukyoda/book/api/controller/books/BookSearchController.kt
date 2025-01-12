@@ -1,0 +1,73 @@
+package com.ukyoda.book.api.controller.books
+
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.ukyoda.book.api.controller.books.dto.BookDto
+import com.ukyoda.book.api.controller.dto.ErrorResponse
+import com.ukyoda.book.common.domain.exception.NotFoundException
+import com.ukyoda.book.usecase.books.service.SearchBookFromApi
+import jakarta.validation.constraints.NotBlank
+import jakarta.validation.constraints.Pattern
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.RestController
+
+@RestController
+@RequestMapping("/api/v1/books/search")
+class BookSearchController(
+    val searchBookFromApi: SearchBookFromApi,
+) {
+    @GetMapping("/title")
+    fun searchByTitle(
+        @RequestParam("q")
+        @NotBlank
+        title: String,
+    ): String =
+        ObjectMapper()
+            .writeValueAsString(
+                searchBookFromApi.searchByTitle(title).map { book ->
+                    BookDto.fromDomain(book)
+                },
+            )
+
+    @GetMapping("/author")
+    fun searchByAuthor(
+        @RequestParam("q")
+        @NotBlank
+        author: String,
+    ) = ObjectMapper()
+        .writeValueAsString(
+            searchBookFromApi
+                .searchByAuthor(author)
+                .map { book ->
+                    BookDto.fromDomain(book)
+                },
+        )
+
+    @GetMapping("/isbn")
+    fun searchByIsbn(
+        @RequestParam("q")
+        @NotBlank
+        @Pattern(regexp = "^[0-9]+$")
+        isbn: String,
+    ): String? {
+        try {
+            return ObjectMapper().writeValueAsString(
+                searchBookFromApi
+                    .searchByIsbn(isbn)
+                    .let { book ->
+                        BookDto.fromDomain(book)
+                    },
+            )
+        } catch (e: NotFoundException) {
+            return ObjectMapper()
+                .writeValueAsString(
+                    ErrorResponse(
+                        code = 404,
+                        reason = "BOOK_NOT_FOUND",
+                        message = "Books are not found",
+                    ),
+                )
+        }
+    }
+}

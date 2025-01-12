@@ -1,4 +1,4 @@
-package com.ukyoda.book.domain.auth.component
+package com.ukyoda.book.usecase.auth.component
 
 import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm

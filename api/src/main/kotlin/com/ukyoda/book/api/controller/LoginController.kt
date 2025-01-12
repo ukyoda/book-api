@@ -1,7 +1,7 @@
 package com.ukyoda.book.api.controller
 
-import com.ukyoda.book.domain.auth.component.JwtComponent
-import com.ukyoda.book.domain.auth.model.UserForm
+import com.ukyoda.book.usecase.auth.component.JwtComponent
+import com.ukyoda.book.usecase.auth.model.UserForm
 import org.apache.tomcat.websocket.AuthenticationException
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus

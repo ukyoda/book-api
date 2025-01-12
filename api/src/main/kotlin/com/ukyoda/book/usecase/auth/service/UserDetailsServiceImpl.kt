@@ -1,4 +1,4 @@
-package com.ukyoda.book.domain.auth.service
+package com.ukyoda.book.usecase.auth.service
 
 import com.ukyoda.book.common.domain.users.repository.UserRepository
 import org.springframework.security.core.userdetails.User

@@ -1,4 +1,4 @@
-package com.ukyoda.book.domain.auth.model
+package com.ukyoda.book.usecase.auth.model
 
 data class UserForm(
     val email: String,
