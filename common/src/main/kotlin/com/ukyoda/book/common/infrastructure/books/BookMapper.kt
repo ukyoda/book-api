@@ -66,7 +66,9 @@ interface BookMapper {
         FROM 
             books
         LIMIT 
-            #{offset} #{limit}
+            #{limit} 
+        OFFSET
+            #{offset}
         """,
     )
     fun findAll(

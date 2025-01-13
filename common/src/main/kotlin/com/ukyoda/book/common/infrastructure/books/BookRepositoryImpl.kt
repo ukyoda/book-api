@@ -33,12 +33,14 @@ class BookRepositoryImpl(
 
     override fun getTotal(): Long = bookMapper.total()
 
-    override fun findAll(page: Pageable): List<Book> =
-        bookMapper
+    override fun findAll(page: Pageable): List<Book> {
+        println("${page.offset}, ${page.pageNumber}")
+        return bookMapper
             .findAll(
-                offset = page.offset.toLong(),
-                page.pageSize.toLong(),
+                offset = page.offset,
+                limit = page.pageSize.toLong(),
             ).map {
                 it.toDomain()
             }
+    }
 }
