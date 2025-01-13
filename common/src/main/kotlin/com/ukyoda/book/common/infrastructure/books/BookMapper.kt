@@ -32,8 +32,8 @@ interface BookMapper {
           #{bookDto.authors},
           #{bookDto.publisher},
           #{bookDto.publishedDate},
-          #{createdAt},
-          #{updatedAt}
+          #{bookDto.createdAt},
+          #{bookDto.updatedAt}
         )
         """,
     )
@@ -41,11 +41,7 @@ interface BookMapper {
         useGeneratedKeys = true,
         keyProperty = "bookDto.id",
     )
-    fun insert(
-        bookDto: BookDto,
-        createdAt: Long,
-        updatedAt: Long,
-    )
+    fun insert(bookDto: BookDto)
 
     @Select(
         """

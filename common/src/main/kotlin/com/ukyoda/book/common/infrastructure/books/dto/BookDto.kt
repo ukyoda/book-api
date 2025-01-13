@@ -21,23 +21,28 @@ data class BookDto(
     val updatedAt: Long? = null,
 ) {
     companion object {
-        fun fromDomain(book: Book) =
-            BookDto(
-                id = book.id,
-                title = book.title,
-                isbn = book.isbn,
-                description = book.description,
-                smallImageUrl = book.smallImageUrl,
-                mediumImageUrl = book.mediumImageUrl,
-                largeImageUrl = book.largeImageUrl,
-                authors =
-                    ObjectMapper()
-                        .writeValueAsString(
-                            book.authors.map { it.name },
-                        ),
-                publisher = book.publisher,
-                publishedDate = book.publishedDate,
-            )
+        fun fromDomain(
+            book: Book,
+            createdAt: Long? = null,
+            updatedAt: Long? = null,
+        ) = BookDto(
+            id = book.id,
+            title = book.title,
+            isbn = book.isbn,
+            description = book.description,
+            smallImageUrl = book.smallImageUrl,
+            mediumImageUrl = book.mediumImageUrl,
+            largeImageUrl = book.largeImageUrl,
+            authors =
+                ObjectMapper()
+                    .writeValueAsString(
+                        book.authors.map { it.name },
+                    ),
+            publisher = book.publisher,
+            publishedDate = book.publishedDate,
+            createdAt = createdAt,
+            updatedAt = updatedAt,
+        )
     }
 
     fun toDomain(): Book {

@@ -16,12 +16,13 @@ class BookRepositoryImpl(
     override fun create(book: Book): Book {
         val clock = Clock.systemUTC().instant()
         val currentTime = clock.epochSecond
-        val bookDto = BookDto.fromDomain(book)
-        bookMapper.insert(
-            bookDto,
-            currentTime,
-            currentTime,
-        )
+        val bookDto =
+            BookDto.fromDomain(
+                book = book,
+                createdAt = currentTime,
+                updatedAt = currentTime,
+            )
+        bookMapper.insert(bookDto)
         return findById(bookDto.id!!)
     }
 
