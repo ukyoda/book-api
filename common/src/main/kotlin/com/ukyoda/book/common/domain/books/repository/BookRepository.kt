@@ -6,11 +6,11 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface BookRepository {
-    fun create(book: Book): Long
+    fun create(book: Book): Book
 
     fun findById(id: Long): Book
 
-    fun getTotal(): Int
+    fun getTotal(): Long
 
     fun findAll(page: Pageable): List<Book>
 }
