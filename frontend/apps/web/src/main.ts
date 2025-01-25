@@ -5,7 +5,7 @@ import { Counter } from "@repo/ui/counter";
 import { setupCounter } from "@repo/ui/setup-counter";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-  <div>
+  <div class="bg-gray-100 p-4">
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
