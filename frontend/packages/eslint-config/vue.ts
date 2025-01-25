@@ -38,6 +38,7 @@ export default tsEslint.config(
       },
     },
     rules: {
+      "no-console": "warn",
       "import/order": [
         "error",
         {
