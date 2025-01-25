@@ -11,5 +11,10 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*"
+  },
+  "dependencies": {
+    "@vee-validate/zod": "^4.15.0",
+    "vee-validate": "^4.15.0",
+    "zod": "^3.24.1"
   }
 }
