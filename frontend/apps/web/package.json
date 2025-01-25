@@ -7,7 +7,7 @@
     "dev": "vite --clearScreen false",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint \"src/**/*.ts\""
+    "lint": "eslint ./"
   },
   "dependencies": {
     "@repo/ui": "workspace:*",
@@ -16,7 +16,6 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/tailwindcss": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
-    "eslint": "^8.57.0"
+    "@repo/typescript-config": "workspace:*"
   }
 }
