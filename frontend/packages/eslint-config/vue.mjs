@@ -1,28 +1,53 @@
-import eslint from "@eslint/js";
-import eslintConfigPrettier from "eslint-config-prettier";
-import eslintPluginVue from "eslint-plugin-vue";
 import globals from "globals";
-import tseslint from "typescript-eslint";
+import pluginJs from "@eslint/js";
+import tsEslint from "typescript-eslint";
+import pluginVue from "eslint-plugin-vue";
+import vueParser from "vue-eslint-parser";
+import eslintConfigPrettier from "@vue/eslint-config-prettier";
+import importPlugin from "eslint-plugin-import";
 
-export default tseslint.config(
+export default tsEslint.config(
   {
     ignores: ["*.d.ts", "**/covreage", "**/dist", "**/node_modules"],
   },
+  { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
+  pluginJs.configs.recommended,
+  tsEslint.configs.recommended,
+  pluginVue.configs["flat/essential"],
+  importPlugin?.flatConfigs?.recommended,
+  eslintConfigPrettier,
   {
-    extends: [
-      eslint.configs.recommended,
-      ...tseslint.configs.recommended,
-      ...eslintPluginVue.configs["flat/recommended"],
-    ],
-    files: ["*.ts", "*.tsx", "*.vue"],
+    files: ["**/*.{ts,tsx,vue}"],
     languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
-      globals: globals.browser,
+      parser: vueParser,
       parserOptions: {
-        parser: tseslint.parser,
+        parser: tsEslint.parser,
+        ecmaVersion: "latest",
+        sourceType: "module",
       },
     },
-  },
-  eslintConfigPrettier
+    settings: {
+      "import/resolver": {
+        typescript: {
+          alwaysTryTypes: true,
+          project: ["**/tsconfig.json"],
+        },
+        node: {
+          extensions: [".js", ".jsx", ".ts", ".tsx", ".d.ts"],
+        },
+      },
+    },
+    rules: {
+      "import/order": [
+        "error",
+        {
+          groups: ["builtin", "external", "parent", "sibling", "index"],
+          alphabetize: {
+            order: "asc",
+          },
+          "newlines-between": "always",
+        },
+      ],
+    },
+  }
 );
