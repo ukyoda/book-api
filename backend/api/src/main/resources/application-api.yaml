@@ -1,0 +1,15 @@
+server:
+  port: 8001
+  servlet:
+    session:
+      cookie:
+        name: SESSION
+
+spring:
+  application:
+    name: api
+
+api:
+  secret: "aosdijfaoijdfo;aisjdo;fiajga"
+
+# logging.level.org.springframework: DEBUG

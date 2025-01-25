@@ -1,0 +1,12 @@
+server:
+  port: 8000
+  servlet:
+    session:
+      cookie:
+        name: SESSION
+
+spring:
+  application:
+    name: admin
+
+# logging.level.org.springframework: DEBUG
