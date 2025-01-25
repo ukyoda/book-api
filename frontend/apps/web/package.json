@@ -10,7 +10,8 @@
     "lint": "eslint \"src/**/*.ts\""
   },
   "dependencies": {
-    "@repo/ui": "workspace:*"
+    "@repo/ui": "workspace:*",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

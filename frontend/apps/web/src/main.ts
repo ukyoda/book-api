@@ -1,22 +1,8 @@
-import { Header } from "@repo/ui/header";
+import { createApp } from "vue";
 import "./style.css";
-import typescriptLogo from "/typescript.svg";
-import { Counter } from "@repo/ui/counter";
-import { setupCounter } from "@repo/ui/setup-counter";
 
-document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-  <div class="bg-gray-100 p-4">
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    ${Header({ title: "Web" })}
-    <div class="card">
-      ${Counter()}
-    </div>
-  </div>
-`;
+import App from "./App.vue";
 
-setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
+const app = createApp(App);
+
+app.mount("#app");
