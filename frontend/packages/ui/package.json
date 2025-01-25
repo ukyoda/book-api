@@ -2,6 +2,7 @@
   "name": "@repo/ui",
   "version": "0.0.0",
   "exports": {
+    "./List": "./src/List/index.ts",
     "./TextInput": "./src/TextInput/index.ts"
   },
   "private": true,
