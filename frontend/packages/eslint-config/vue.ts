@@ -17,7 +17,7 @@ export default tsEslint.config(
   importPlugin?.flatConfigs?.recommended,
   eslintConfigPrettier,
   {
-    files: ["**/*.{ts,tsx,vue}"],
+    files: ["**/*.{js,ts,jsx,tsx,vue}"],
     languageOptions: {
       parser: vueParser,
       parserOptions: {
@@ -38,7 +38,7 @@ export default tsEslint.config(
       },
     },
     rules: {
-      "no-console": "warn",
+      "no-console": "error",
       "import/order": [
         "error",
         {
