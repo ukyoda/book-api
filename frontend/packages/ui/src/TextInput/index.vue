@@ -1,7 +1,7 @@
 <script setup lang="ts" generic="T extends string | number">
 import { XCircleIcon } from "@heroicons/vue/16/solid";
-import { useField, type TypedSchema } from "vee-validate";
 import { defineEmits, computed, useId, type InputHTMLAttributes } from "vue";
+import { useField, type TypedSchema } from "vee-validate";
 const model = defineModel<T>();
 const props = defineProps<{
   type?: InputHTMLAttributes["type"];

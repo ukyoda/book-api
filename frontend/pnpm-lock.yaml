@@ -157,6 +157,9 @@ importers:
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
+      '@repo/tailwindcss':
+        specifier: workspace:*
+        version: link:../tailwindcss
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
