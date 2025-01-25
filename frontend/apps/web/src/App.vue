@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
-
-defineProps<{ val?: number }>();
+import { TextInput } from "@repo/ui/TextInput";
 </script>
 <template>
   <div>test</div>
+  <TextInput type="text" />
 </template>

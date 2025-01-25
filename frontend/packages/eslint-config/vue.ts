@@ -38,6 +38,7 @@ export default tsEslint.config(
       },
     },
     rules: {
+      "vue/multi-word-component-names": "off",
       "no-console": "warn",
       "import/order": [
         "error",
