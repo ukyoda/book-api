@@ -1,5 +1,4 @@
 {
-  "extends": "@repo/typescript-config/base.json",
-  "include": ["src", "**/*.vue"],
-  "exclude": ["node_modules"]
+  "extends": "@repo/typescript-config/vite.json",
+  "include": ["src", "**/*.vue"]
 }
