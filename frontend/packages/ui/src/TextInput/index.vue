@@ -44,8 +44,12 @@ const fontSize = "text-sm font-medium";
       {{ label }}
     </label>
     <div
-      class="border-[1px] rounded-md flex px-2.5"
-      :class="[isError ? 'border-red-600' : 'border-gray-300']"
+      class="border rounded-md flex px-2.5"
+      :class="[
+        isError
+          ? 'border-red-600'
+          : 'border-gray-300 focus-within:border-2 focus-within:border-outline',
+      ]"
     >
       <input
         v-model="fieldValue"

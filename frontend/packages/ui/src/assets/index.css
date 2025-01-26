@@ -5,3 +5,7 @@
 body {
   @apply box-border;
 }
+
+* {
+  @apply outline-outline;
+}

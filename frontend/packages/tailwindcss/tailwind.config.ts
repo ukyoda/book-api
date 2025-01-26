@@ -12,6 +12,7 @@ const config: Omit<Config, "content"> = {
         danger: "#F44336", // 警告色 (赤)
         link: "#2196F3", // リンク色 (青)
         transparent: "transparent", // 透明
+        outline: "#029CFD", // アウトラインカラー
       },
       fontFamily: {
         sans: ['"Noto Sans"', "Arial", "sans-serif"], // 清潔感のあるフォント
