@@ -8,6 +8,18 @@ importers:
 
   .:
     dependencies:
+      '@headlessui/vue':
+        specifier: ^1.7.23
+        version: 1.7.23(vue@3.5.13)
+      '@heroicons/vue':
+        specifier: ^2.2.0
+        version: 2.2.0(vue@3.5.13)
+      '@vee-validate/zod':
+        specifier: ^4.15.0
+        version: 4.15.0(vue@3.5.13)(zod@3.24.1)
+      vee-validate:
+        specifier: ^4.15.0
+        version: 4.15.0(vue@3.5.13)
       vue:
         specifier: ^3.5.13
         version: 3.5.13(typescript@5.7.3)
@@ -24,6 +36,9 @@ importers:
       eslint:
         specifier: ^9.19.0
         version: 9.19.0
+      globals:
+        specifier: ^15.14.0
+        version: 15.14.0
       msw:
         specifier: ^2.7.0
         version: 2.7.0(@types/node@22.10.10)(typescript@5.7.3)
@@ -141,23 +156,13 @@ importers:
   packages/typescript-config: {}
 
   packages/ui:
-    dependencies:
-      '@headlessui/vue':
-        specifier: ^1.7.23
-        version: 1.7.23(vue@3.5.13)
-      '@heroicons/vue':
-        specifier: ^2.2.0
-        version: 2.2.0(vue@3.5.13)
-      '@vee-validate/zod':
-        specifier: ^4.15.0
-        version: 4.15.0(vue@3.5.13)(zod@3.24.1)
-      vee-validate:
-        specifier: ^4.15.0
-        version: 4.15.0(vue@3.5.13)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
+      '@repo/tailwindcss':
+        specifier: workspace:*
+        version: link:../tailwindcss
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
@@ -3130,6 +3135,11 @@ packages:
 
   /globals@14.0.0:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
+    engines: {node: '>=18'}
+    dev: true
+
+  /globals@15.14.0:
+    resolution: {integrity: sha512-OkToC372DtlQeje9/zHIo5CT8lRP/FUgEOKBEhU4e0abL7J7CD24fD9ohiLN5hagG/kWCYj4K5oaxxtj2Z0Dig==}
     engines: {node: '>=18'}
     dev: true
 

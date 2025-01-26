@@ -51,5 +51,5 @@ export default tsEslint.config(
         },
       ],
     },
-  }
+  },
 );

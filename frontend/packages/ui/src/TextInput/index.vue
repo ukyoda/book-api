@@ -2,6 +2,7 @@
 import { XCircleIcon } from "@heroicons/vue/16/solid";
 import { useField, type TypedSchema } from "vee-validate";
 import { defineEmits, computed, useId, type InputHTMLAttributes } from "vue";
+
 const model = defineModel<T>();
 const props = defineProps<{
   type?: InputHTMLAttributes["type"];
