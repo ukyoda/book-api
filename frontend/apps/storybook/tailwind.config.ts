@@ -1,6 +1,7 @@
 import sharedConfig from "@repo/tailwindcss";
 import { type Config } from "tailwindcss";
 
-export default {
+const config: Config = {
   presets: [sharedConfig],
-} satisfies Config;
+};
+export default config;
