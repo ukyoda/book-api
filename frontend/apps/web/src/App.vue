@@ -16,6 +16,6 @@ const value = ref("");
       label="Text Field"
       :validation-schema="toTypedSchema(validator)"
     />
-    <p>{{ value }}</p>
+    <p class="text-lg text-green-500">{{ value }}</p>
   </div>
 </template>
