@@ -132,7 +132,14 @@ importers:
         specifier: workspace:*
         version: link:../../packages/tailwindcss
 
-  packages/common: {}
+  packages/common:
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
 
   packages/eslint-config:
     devDependencies:

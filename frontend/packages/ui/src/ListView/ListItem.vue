@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { isAbsoluteUrl } from "@repo/utils/link";
-
 defineProps<{
   link?: string;
+  isExternal?: boolean;
 }>();
 defineEmits<{
-  click: [];
+  click: [e: MouseEvent];
 }>();
 </script>
 <template>
@@ -13,8 +12,10 @@ defineEmits<{
     <component
       :is="link ? 'a' : 'div'"
       :href="link"
+      :target="isExternal ? '_blank' : undefined"
+      :rel="isExternal ? 'noopener noreferrer' : undefined"
       class="px-3 py-4 block"
-      @click="!!link && $emit('click')"
+      @click="(e: MouseEvent) => !!link && $emit('click', e)"
     >
       <div v-if="$slots.left || $slots.right" class="flex justify-between">
         <div>

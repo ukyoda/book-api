@@ -1,20 +1,16 @@
 {
   "name": "@repo/common",
   "version": "0.0.0",
-  "type": "module",
   "private": true,
+  "type": "module",
   "exports": {
     "./link": "./src/link/index.ts"
   },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@repo/eslint-config": "workspace:*"
+  },
   "publishConfig": {
     "access": "restricted"
-  },
-  "scripts": {
-    "lint": "eslint ./src",
-    "type-check": "tsc --noEmit"
-  },
-  "devDpendencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*"
   }
 }
