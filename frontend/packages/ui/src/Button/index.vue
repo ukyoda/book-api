@@ -10,6 +10,7 @@ const {
   color = "normal",
   variant = "solid",
   size = "md",
+  block = false,
 } = defineProps<{
   type?: "button" | "submit" | "reset";
   id?: string;
@@ -17,6 +18,7 @@ const {
   color?: ButtonTheme;
   variant?: ButtonVariant;
   size?: ButtonSize;
+  block?: boolean;
 }>();
 defineEmits<{
   click: [MouseEvent];
@@ -26,7 +28,7 @@ const sizeStyle = computed(() => {
   return {
     sm: "text-[0.8rem] px-[0.8rem] py-[0.4rem]",
     md: "text-md px-4 py-3",
-    lg: "text-lg px-4 py-3",
+    lg: "text-xl px-6 py-4",
   }[size];
 });
 const themeStyle = computed(() => {
@@ -61,7 +63,12 @@ const themeStyle = computed(() => {
     :type="type"
     :id="id"
     :disabled="disabled"
-    :class="[sizeStyle, themeStyle, 'cursor-pointer active:opacity-80 px-4']"
+    :class="[
+      sizeStyle,
+      themeStyle,
+      block && 'w-full',
+      'cursor-pointer active:opacity-80 px-4',
+    ]"
     @click="(e) => $emit('click', e)"
   >
     <slot />

@@ -7,10 +7,26 @@ const meta = {
   title: "@repo/ui/Button",
   component: Button,
   tags: ["autodocs"],
+  args: {
+    size: "md",
+    color: "normal",
+    variant: "solid",
+  },
   argTypes: {
+    size: {
+      control: "inline-radio",
+      options: ["sm", "md", "lg"],
+    },
     color: {
-      control: "select",
+      control: "inline-radio",
       options: ["primary", "secondary", "danger", "normal"],
+    },
+    variant: {
+      control: "inline-radio",
+      options: ["solid", "outline", "ghost"],
+    },
+    block: {
+      control: "boolean",
     },
   },
   render: (args) => ({
@@ -31,7 +47,7 @@ export const Size: Story = {
       return { args };
     },
     template: `
-      <div class="space-x-4">
+      <div class="flex items-center flex-wrap gap-4">
         <Button v-bind="args" size="sm">SMALL</Button>
         <Button v-bind="args" size="md">MEDIUM</Button>
         <Button v-bind="args" size="lg">LARGE</Button>
@@ -47,7 +63,7 @@ export const Color: Story = {
       return { args };
     },
     template: `
-      <div class="space-x-4">
+      <div class="flex items-center flex-wrap gap-4">
         <Button v-bind="args" color="primary">PRIMARY</Button>
         <Button v-bind="args" color="secondary">SECONDARY</Button>
         <Button v-bind="args" color="danger">DANGER</Button>
@@ -64,7 +80,7 @@ export const Variant: Story = {
       return { args };
     },
     template: `
-      <div class="space-x-4">
+      <div class="flex items-center flex-wrap gap-4">
         <Button v-bind="args" variant="solid">SOLID</Button>
         <Button v-bind="args" variant="outline">OUTLINE</Button>
         <Button v-bind="args" variant="ghost">GHOST</Button>
