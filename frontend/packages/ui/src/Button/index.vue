@@ -37,10 +37,14 @@ const themeStyle = computed(() => {
       "solid-secondary": "bg-secondary text-white rounded-md",
       "solid-danger": "bg-danger text-white rounded-md",
       "solid-normal": "bg-normal text-black border border-gray-400 rounded-md",
-      "outline-primary": "border-blue-500 text-blue-500",
-      "outline-secondary": "border-gray-500 text-gray-500",
-      "outline-danger": "border-red-500 text-red-500",
-      "outline-normal": "border-gray-500 text-gray-500",
+      "outline-primary":
+        "bg-transparent text-primary border border-primary rounded-md",
+      "outline-secondary":
+        "bg-transparent text-secondary border border-secondary rounded-md",
+      "outline-danger":
+        "bg-transparent text-danger border border-danger rounded-md",
+      "outline-normal":
+        "bg-transparent text-black border border-black rounded-md",
       "ghost-primary": "text-blue-500",
       "ghost-secondary": "text-gray-500",
       "ghost-danger": "text-red-500",

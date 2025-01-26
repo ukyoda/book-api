@@ -7,6 +7,12 @@ const meta = {
   title: "@repo/ui/Button",
   component: Button,
   tags: ["autodocs"],
+  argTypes: {
+    color: {
+      control: "select",
+      options: ["primary", "secondary", "danger", "normal"],
+    },
+  },
   render: (args) => ({
     components: { Button },
     setup() {
@@ -26,13 +32,14 @@ export const Size: Story = {
     },
     template: `
       <div class="space-x-4">
-      <Button v-bind="args" size="sm">SMALL</Button>
-      <Button v-bind="args" size="md">MEDIUM</Button>
-      <Button v-bind="args" size="lg">LARGE</Button>
+        <Button v-bind="args" size="sm">SMALL</Button>
+        <Button v-bind="args" size="md">MEDIUM</Button>
+        <Button v-bind="args" size="lg">LARGE</Button>
       </div>
     `,
   }),
 };
+
 export const Color: Story = {
   render: (args) => ({
     components: { Button },
@@ -40,12 +47,28 @@ export const Color: Story = {
       return { args };
     },
     template: `
-          <div class="space-x-4">
-            <Button v-bind="args" color="primary">PRIMARY</Button>
-            <Button v-bind="args" color="secondary">SECONDARY</Button>
-            <Button v-bind="args" color="danger">DANGER</Button>
-            <Button v-bind="args" color="normal">NORMAL</Button>
-          </div>
-        `,
+      <div class="space-x-4">
+        <Button v-bind="args" color="primary">PRIMARY</Button>
+        <Button v-bind="args" color="secondary">SECONDARY</Button>
+        <Button v-bind="args" color="danger">DANGER</Button>
+        <Button v-bind="args" color="normal">NORMAL</Button>
+      </div>
+    `,
+  }),
+};
+
+export const Variant: Story = {
+  render: (args) => ({
+    components: { Button },
+    setup() {
+      return { args };
+    },
+    template: `
+      <div class="space-x-4">
+        <Button v-bind="args" variant="solid">SOLID</Button>
+        <Button v-bind="args" variant="outline">OUTLINE</Button>
+        <Button v-bind="args" variant="ghost">GHOST</Button>
+      </div>
+    `,
   }),
 };
