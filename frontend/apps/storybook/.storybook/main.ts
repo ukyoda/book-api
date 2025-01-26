@@ -10,11 +10,7 @@ function getAbsolutePath(value) {
 
 /** @type { import('@storybook/vue3-vite').StorybookConfig } */
 const config = {
-  stories: [
-    "../stories/**/*.mdx",
-    "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
-    "../../../packages/ui/**/*.stories.@(ts|tsx)",
-  ],
+  stories: ["../../../packages/ui/**/*.stories.@(ts|tsx)"],
   addons: [
     getAbsolutePath("@storybook/addon-onboarding"),
     getAbsolutePath("@storybook/addon-essentials"),
