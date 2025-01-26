@@ -33,8 +33,10 @@ const themeStyle = computed(() => {
   const key = `${variant}-${color}`;
   return (
     {
-      "solid-primary": "bg-blue-500 text-white",
-      "solid-secondary": "bg-gray-500 text-white",
+      "solid-primary":
+        "bg-primary text-black border border-gray-400 rounded-md",
+      "solid-secondary":
+        "bg-secondary border text-black border border-gray-400 rounded-md",
       "solid-danger": "bg-red-500 text-white",
       "solid-normal": "bg-gray-500 text-white",
       "outline-primary": "border-blue-500 text-blue-500",
@@ -54,7 +56,7 @@ const themeStyle = computed(() => {
     :type="type"
     :id="id"
     :disabled="disabled"
-    :class="[sizeStyle, themeStyle, 'hover:cursor-pointer active:opacity-80']"
+    :class="[sizeStyle, themeStyle, 'cursor-pointer active:opacity-80']"
     @click="(e) => $emit('click', e)"
   >
     <slot />

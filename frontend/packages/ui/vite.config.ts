@@ -9,6 +9,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: [
+        fileURLToPath(new URL("src/Button/index.ts", import.meta.url)),
         fileURLToPath(new URL("src/TextInput/index.ts", import.meta.url)),
         fileURLToPath(new URL("src/List/index.ts", import.meta.url)),
       ],
