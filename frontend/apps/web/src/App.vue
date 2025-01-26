@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Button } from "@repo/ui/Button";
 import { TextInput } from "@repo/ui/TextInput";
 import { toTypedSchema } from "@vee-validate/zod";
 import { computed, ref } from "vue";
@@ -10,6 +11,8 @@ const value = ref("");
 <template>
   <div>test</div>
   <div class="p-4">
+    <p class="text-primary">test</p>
+    <Button variant="solid" color="primary">aa</Button>
     <TextInput
       v-model="value"
       type="text"
