@@ -13,5 +13,4 @@
     "noImplicitReturns": true
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.vue"]
 }
