@@ -1,2 +1,7 @@
 @import "tailwindcss";
 @config "@repo/tailwindcss";
+
+:root,
+body {
+  @apply box-border;
+}

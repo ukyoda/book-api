@@ -24,21 +24,19 @@ defineEmits<{
 
 const sizeStyle = computed(() => {
   return {
-    sm: "text-sm px-2 py-1",
-    md: "text-md px-2 py-1",
-    lg: "text-lg px-4 py-1",
+    sm: "text-sm px-4 py-3",
+    md: "text-md px-4 py-3",
+    lg: "text-lg px-4 py-3",
   }[size];
 });
 const themeStyle = computed(() => {
   const key = `${variant}-${color}`;
   return (
     {
-      "solid-primary":
-        "bg-primary text-black border border-gray-400 rounded-md",
-      "solid-secondary":
-        "bg-secondary border text-black border border-gray-400 rounded-md",
-      "solid-danger": "bg-red-500 text-white",
-      "solid-normal": "bg-gray-500 text-white",
+      "solid-primary": "bg-primary text-white rounded-md",
+      "solid-secondary": "bg-secondary text-white rounded-md",
+      "solid-danger": "bg-danger text-white rounded-md",
+      "solid-normal": "bg-normal text-black border border-gray-400 rounded-md",
       "outline-primary": "border-blue-500 text-blue-500",
       "outline-secondary": "border-gray-500 text-gray-500",
       "outline-danger": "border-red-500 text-red-500",
@@ -56,7 +54,7 @@ const themeStyle = computed(() => {
     :type="type"
     :id="id"
     :disabled="disabled"
-    :class="[sizeStyle, themeStyle, 'cursor-pointer active:opacity-80']"
+    :class="[sizeStyle, themeStyle, 'cursor-pointer active:opacity-80 px-4']"
     @click="(e) => $emit('click', e)"
   >
     <slot />
