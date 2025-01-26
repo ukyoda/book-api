@@ -1,10 +1,16 @@
 {
-  "name": "@repo/utils",
+  "name": "@repo/common",
   "version": "0.0.0",
   "type": "module",
   "private": true,
+  "exports": {
+    "./link": "./src/link/index.ts"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
   "scripts": {
-    "lint": "eslint ./",
+    "lint": "eslint ./src",
     "type-check": "tsc --noEmit"
   },
   "devDpendencies": {

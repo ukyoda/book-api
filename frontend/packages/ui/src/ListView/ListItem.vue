@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { isAbsoluteUrl } from "@repo/utils/link";
+
 defineProps<{
   link?: string;
 }>();

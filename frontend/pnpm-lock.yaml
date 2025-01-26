@@ -69,6 +69,9 @@ importers:
 
   apps/storybook:
     dependencies:
+      '@repo/common':
+        specifier: workspace:*
+        version: link:../../packages/common
       '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -129,6 +132,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/tailwindcss
 
+  packages/common: {}
+
   packages/eslint-config:
     devDependencies:
       '@vue/eslint-config-prettier':
@@ -163,9 +168,9 @@ importers:
 
   packages/ui:
     dependencies:
-      vite-plugin-lib-inject-css:
-        specifier: ^2.2.1
-        version: 2.2.1(vite@6.0.11(@types/node@22.10.10)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.83.4))
+      '@repo/common':
+        specifier: workspace:*
+        version: link:../common
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -176,6 +181,9 @@ importers:
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
+      vite-plugin-lib-inject-css:
+        specifier: ^2.2.1
+        version: 2.2.1(vite@6.0.11(@types/node@22.10.10)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.83.4))
 
 packages:
 

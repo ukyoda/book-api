@@ -7,7 +7,8 @@
     "build": "storybook build"
   },
   "dependencies": {
-    "@repo/ui": "workspace:*"
+    "@repo/ui": "workspace:*",
+    "@repo/common": "workspace:*"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

@@ -9,6 +9,9 @@
     "./index.css": "./dist/index.css"
   },
   "private": true,
+  "publishConfig": {
+    "access": "restricted"
+  },
   "scripts": {
     "build": "vite build",
     "dev": "vite build --watch",
@@ -18,9 +21,10 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/tailwindcss": "workspace:*",
-    "@repo/typescript-config": "workspace:*"
+    "@repo/typescript-config": "workspace:*",
+    "vite-plugin-lib-inject-css": "^2.2.1"
   },
   "dependencies": {
-    "vite-plugin-lib-inject-css": "^2.2.1"
+    "@repo/common": "workspace:*"
   }
 }
