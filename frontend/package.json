@@ -15,7 +15,6 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@storybook/vue3": "^8.5.1",
     "@tailwindcss/vite": "^4.0.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "eslint": "^9.19.0",
