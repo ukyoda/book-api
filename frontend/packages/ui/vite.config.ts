@@ -13,7 +13,7 @@ export default defineConfig({
         fileURLToPath(new URL("src/index.ts", import.meta.url)),
         fileURLToPath(new URL("src/Button/index.ts", import.meta.url)),
         fileURLToPath(new URL("src/TextInput/index.ts", import.meta.url)),
-        fileURLToPath(new URL("src/List/index.ts", import.meta.url)),
+        fileURLToPath(new URL("src/ListView/index.ts", import.meta.url)),
       ],
       formats: ["es"],
     },
