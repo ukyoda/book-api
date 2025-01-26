@@ -29,7 +29,7 @@ const onClick = (item: BrowsingData) => {
       v-for="(item, idx) in items"
       :key="idx"
       type="button"
-      class="flex items-center justify-between w-full text-left bg-white hover:bg-gray-200 px-4 py-2 rounded-md"
+      class="flex items-center justify-between w-full text-left bg-white hover:bg-gray-200 px-4 py-2 rounded-md cursor-pointer"
       @click="onClick(item)"
     >
       <span>
