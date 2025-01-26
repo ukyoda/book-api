@@ -5,7 +5,7 @@ import TextInput from "./index.vue";
 type Story = StoryObj<typeof meta>;
 const meta = {
   title: "@repo/ui/TextInput",
-  component: TextInput,
+  component: TextInput as Record<keyof typeof TextInput, unknown>,
   tags: ["autodocs"],
 } satisfies Meta<typeof TextInput>;
 
