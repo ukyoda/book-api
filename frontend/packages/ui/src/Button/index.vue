@@ -24,7 +24,7 @@ defineEmits<{
 
 const sizeStyle = computed(() => {
   return {
-    sm: "text-sm px-4 py-3",
+    sm: "text-[0.8rem] px-[0.8rem] py-[0.4rem]",
     md: "text-md px-4 py-3",
     lg: "text-lg px-4 py-3",
   }[size];
