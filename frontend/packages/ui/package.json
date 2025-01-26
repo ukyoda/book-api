@@ -5,7 +5,8 @@
   "exports": {
     "./Button": "./src/Button/index.ts",
     "./List": "./src/List/index.ts",
-    "./TextInput": "./src/TextInput/index.ts"
+    "./TextInput": "./src/TextInput/index.ts",
+    "./index.css": "./dist/index.css"
   },
   "private": true,
   "scripts": {
@@ -16,7 +17,10 @@
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
-    "@repo/tailwindcss": "workspace:*"
+    "@repo/tailwindcss": "workspace:*",
+    "@repo/typescript-config": "workspace:*"
+  },
+  "dependencies": {
+    "vite-plugin-lib-inject-css": "^2.2.1"
   }
 }

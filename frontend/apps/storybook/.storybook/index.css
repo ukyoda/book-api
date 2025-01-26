@@ -1,2 +1,2 @@
 @import "tailwindcss";
-@config "@repo/tailwindcss";
+@import "@repo/ui/index.css";
