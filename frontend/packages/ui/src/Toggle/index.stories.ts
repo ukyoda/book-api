@@ -12,6 +12,10 @@ const meta = {
       control: "inline-radio",
       options: ["primary", "secondary", "danger", "normal"],
     },
+    direction: {
+      control: "inline-radio",
+      options: ["west", "east"],
+    },
   },
   tags: ["autodocs"],
 } satisfies Meta<typeof Toggle>;
@@ -25,7 +29,7 @@ export const Default: Story = {
   },
 };
 
-export const Colors: Story = {
+export const Color: Story = {
   args: {
     alt: "Alternative text",
     modelValue: true,
@@ -43,5 +47,45 @@ export const Colors: Story = {
         <Toggle v-bind="args" color="normal" />
       </div>
     `,
+  }),
+};
+
+export const Size: Story = {
+  args: {
+    alt: "Alternative text",
+    modelValue: true,
+    color: "primary",
+  },
+  render: (args) => ({
+    components: { Toggle },
+    setup() {
+      return { args };
+    },
+    template: `
+        <div class="m-4 flex items-center gap-4">
+          <Toggle v-bind="args" size="sm" />
+          <Toggle v-bind="args" size="md" />
+          <Toggle v-bind="args" size="lg" />
+        </div>
+      `,
+  }),
+};
+
+export const WithLabel: Story = {
+  args: {
+    modelValue: true,
+    color: "primary",
+    label: "Toggle Switch",
+  },
+  render: (args) => ({
+    components: { Toggle },
+    setup() {
+      return { args };
+    },
+    template: `
+            <div class="m-4 flex items-center gap-4">
+              <Toggle v-bind="args" />
+            </div>
+          `,
   }),
 };

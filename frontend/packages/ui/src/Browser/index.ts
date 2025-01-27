@@ -1,2 +1,2 @@
-import Browser from "./Browser.vue";
+import Browser from "./index.vue";
 export { Browser };

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 
-import Browser from "./index.vue";
+import { Browser } from ".";
 
 type Story = StoryObj<typeof meta>;
 const meta = {
