@@ -32,11 +32,11 @@ const onClick = (item: BrowsingData) => {
       class="flex items-center justify-between w-full text-left bg-white hover:bg-gray-200 px-4 py-2 rounded-md cursor-pointer"
       @click="onClick(item)"
     >
-      <span class="block">
+      <div class="block">
         <slot :name="item.value">
           {{ item.label }}
         </slot>
-      </span>
+      </div>
       <template v-if="item.children">
         <ChevronRightIcon class="w-4" />
       </template>
