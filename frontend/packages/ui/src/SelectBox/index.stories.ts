@@ -9,7 +9,7 @@ const meta = {
   render: (args) => ({
     components: { SelectBox, SelectOption },
     setup() {
-      const model = ref<(typeof args.data)[number]["value"]>("option1");
+      const model = ref<(typeof args.data)[number]["value"]>();
       return { args, model };
     },
     template: `

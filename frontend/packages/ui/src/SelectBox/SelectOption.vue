@@ -4,7 +4,6 @@ import { CheckIcon } from "@heroicons/vue/20/solid";
 
 const { value } = defineProps<{
   value: string;
-  active?: boolean;
 }>();
 </script>
 

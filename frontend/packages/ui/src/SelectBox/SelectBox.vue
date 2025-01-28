@@ -1,9 +1,8 @@
 <script setup lang="ts" generic="T extends ModelTypeBase">
 import { Listbox, ListboxButton, ListboxOptions } from "@headlessui/vue";
 import { ChevronUpDownIcon } from "@heroicons/vue/16/solid";
-import { provide } from "vue";
 
-import { type ModelTypeBase, provideKey } from "./type";
+import { type ModelTypeBase } from "./type";
 const { placeholder = "Select..." } = defineProps<{
   placeholder?: string;
 }>();
@@ -12,7 +11,6 @@ defineSlots<{
   default?: unknown;
   placeholder: unknown;
 }>();
-provide(provideKey, model);
 </script>
 <template>
   <Listbox v-model="model">
@@ -20,7 +18,10 @@ provide(provideKey, model);
       <ListboxButton
         class="relative px-2 py-1 border border-gray-400 rounded-md w-full text-left"
       >
-        <slot name="placeholder">
+        <template v-if="model !== undefined">
+          {{ model }}
+        </template>
+        <slot v-else name="placeholder">
           {{ placeholder }}
         </slot>
         <ChevronUpDownIcon
