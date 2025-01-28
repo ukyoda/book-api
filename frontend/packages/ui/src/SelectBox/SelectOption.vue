@@ -12,7 +12,7 @@ const { value } = defineProps<{
   <ListboxOption :value="value" as="template" v-slot="{ active, selected }">
     <li
       :class="{
-        'bg-blue-500 text-white': active,
+        'bg-secondary text-white': active,
         'bg-white text-black': !active,
       }"
       class="flex items-center px-2 py-1 justify-start cursor-pointer"
