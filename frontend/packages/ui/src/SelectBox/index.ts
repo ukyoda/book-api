@@ -1,4 +1,3 @@
-import SelectBox from "./SelectBox.vue";
-import SelectOption from "./SelectOption.vue";
+import SelectBox from "./index.vue";
 
-export { SelectBox, SelectOption };
+export { SelectBox };

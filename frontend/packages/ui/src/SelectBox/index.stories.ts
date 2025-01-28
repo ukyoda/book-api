@@ -1,13 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 import { ref } from "vue";
 
-import { SelectBox, SelectOption } from ".";
+import { Button } from "../Button";
+
+import { SelectBox } from ".";
 
 type Story = StoryObj<typeof meta>;
 const meta = {
   title: "@repo/ui/SelectBox",
+  component: SelectBox,
+  tags: ["autodocs"],
   render: (args) => ({
-    components: { SelectBox, SelectOption },
+    components: { SelectBox, Button },
     setup() {
       const model = ref<(typeof args.data)[number]["value"]>();
       return { args, model };
@@ -15,29 +19,21 @@ const meta = {
     template: `
       <div class="max-w-xl p-6">
         <p class="mb-3">Value: {{ model }}</p>
-        <SelectBox v-model="model" placeholder="Select an option">
-            <SelectOption 
-              v-for="{ label, value } in args.data" 
-              :value="value" 
-              :key="label"
-            >
-              {{ label }}
-            </SelectOption>
-        </SelectBox>
+        <SelectBox 
+          v-bind="args"
+          v-model="model" 
+        />
+        <Button type="button" @click="model = undefined" class="mt-3">Clear</Button>
       </div>
     `,
   }),
-} satisfies Meta<{
-  data: {
-    label: string;
-    value: string;
-  }[];
-}>;
+} satisfies Meta<typeof SelectBox>;
 
 export default meta;
 
 export const Default: Story = {
   args: {
+    placeholder: "Select...",
     data: [
       { label: "Option 1", value: "option1" },
       { label: "Option 2", value: "option2" },
