@@ -6,6 +6,7 @@
     "./Button": "./src/Button/index.ts",
     "./Browser": "./src/Browser/index.ts",
     "./ListView": "./src/ListView/index.ts",
+    "./SelectBox": "./src/SelectBox/index.ts",
     "./TextInput": "./src/TextInput/index.ts",
     "./index.css": "./dist/index.css"
   },
