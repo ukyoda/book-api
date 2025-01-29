@@ -1,3 +1,3 @@
-import Modal from "./index.vue";
+import Modal from "./Modal/index.vue";
 
 export { Modal };
