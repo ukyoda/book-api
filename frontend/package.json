@@ -11,6 +11,7 @@
     "@headlessui/vue": "^1.7.23",
     "@heroicons/vue": "^2.2.0",
     "@vee-validate/zod": "^4.15.0",
+    "clsx": "^2.1.1",
     "tailwind-merge": "^2.6.0",
     "vee-validate": "^4.15.0",
     "vue": "^3.5.13",

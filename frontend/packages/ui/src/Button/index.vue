@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 import { computed } from "vue";
 
 type ButtonVariant = "solid" | "outline" | "ghost";
@@ -63,12 +65,17 @@ const themeStyle = computed(() => {
     :type="type"
     :id="id"
     :disabled="disabled"
-    :class="[
-      sizeStyle,
-      themeStyle,
-      block && 'w-full',
-      'cursor-pointer active:opacity-80 px-4',
-    ]"
+    :class="
+      twMerge(
+        clsx([
+          sizeStyle,
+          themeStyle,
+          block && 'w-full',
+          'cursor-pointer hover:opacity-80 active:opacity-60 px-4',
+        ]),
+        clsx($attrs.class ? $attrs.class : ''),
+      )
+    "
     @click="(e) => $emit('click', e)"
   >
     <slot />

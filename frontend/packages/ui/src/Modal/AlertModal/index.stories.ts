@@ -3,17 +3,17 @@ import { ref } from "vue";
 
 import { Button } from "../../Button";
 
-import Modal from "./index.vue";
+import AlertModal from "./index.vue";
 
 type Story = StoryObj<typeof meta>;
 const meta = {
-  title: "@repo/ui/modal/Modal",
-  component: Modal,
+  title: "@repo/ui/modal/AlertModal",
+  component: AlertModal,
   tags: ["autodocs"],
   render: (args) => ({
-    components: { Modal, Button },
+    components: { AlertModal, Button },
     setup() {
-      const modalRef = ref<typeof Modal>();
+      const modalRef = ref<typeof AlertModal>();
       const openModal = () => {
         modalRef.value?.show();
       };
@@ -26,22 +26,17 @@ const meta = {
       <div class="p-4">
         <Button @click="openModal">Open Modal</Button>
       </div>
-      <Modal ref="modalRef" v-bind="args" class="min-w-3xl">
+      <AlertModal ref="modalRef" v-bind="args">
         <template #header>
           <h2 class="text-lg font-semibold">Modal Header</h2>
         </template>
         <template #body>
-          <div>
-            <p class="text-sm">Modal Body</p>
-            <div class="flex justify-end mt-4">
-                <Button @click="closeModal">Close</Button>
-            </div>
-          </div>
+          aaaaaa
         </template>
-      </Modal>
+      </AlertModal>
     `,
   }),
-} satisfies Meta<typeof Modal>;
+} satisfies Meta<typeof AlertModal>;
 
 export default meta;
 
